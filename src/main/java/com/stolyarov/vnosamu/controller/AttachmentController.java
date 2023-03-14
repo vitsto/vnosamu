@@ -21,7 +21,7 @@ public class AttachmentController {
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> upload(@RequestParam MultipartFile attachment) {
-        attachmentService.upload(attachment);
+        attachmentService.upload(attachment, "documents");
         return ResponseEntity.ok().build();
     }
 

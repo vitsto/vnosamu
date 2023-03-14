@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Set;
 
 @Builder(toBuilder = true)
 @Data
@@ -36,4 +37,10 @@ public class Attachment {
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime creationDateTime;
+
+    @ManyToMany (mappedBy = "attachmentSet")
+    Set<Post> postSet;
+
+    @ManyToMany (mappedBy = "attachmentSet")
+    Set<Comment> commentSet;
 }
